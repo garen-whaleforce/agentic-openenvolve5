@@ -1,0 +1,13 @@
+{
+  "as_of": "2024-11-29",
+  "rolling_n": 50,
+  "rolling_wins": 46,
+  "rolling_wilson_lb": 0.811614974549363,
+  "halt_wilson_lb_threshold": 0.7,
+  "halt_wilson_lb": false,
+  "eps_missing_window": 200,
+  "eps_missing_rate": 0.06,
+  "halt_eps_missing_threshold": 0.15,
+  "halt_eps_missing": false,
+  "halt_new_trades": false
+}
