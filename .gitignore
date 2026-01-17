@@ -26,3 +26,6 @@ credentials.json
 # OS
 .DS_Store
 Thumbs.db
+paper_trading/paper_trading.db
+EarningsCallAgenticRag/oos_runs/
+EarningsCallAgenticRag/data/

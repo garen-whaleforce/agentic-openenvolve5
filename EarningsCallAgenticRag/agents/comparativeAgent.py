@@ -230,7 +230,7 @@ class ComparativeAgent:
                             WHERE node.ticker IN $peer_ticker_list AND score > $min_score
                             OPTIONAL MATCH (node)-[:HAS_VALUE]->(v:Value)
                             OPTIONAL MATCH (node)-[:EXPLAINED_BY]->(r:Reason)
-                            RETURN node.text AS text, node.metric AS metric, v.content AS value,
+                            RETURN node.metric AS text, node.metric AS metric, v.content AS value,
                                    r.content AS reason, node.ticker AS ticker,
                                    node.quarter AS quarter, score
                             ORDER BY score DESC
@@ -248,7 +248,7 @@ class ComparativeAgent:
                                 WHERE node.ticker = $peer_ticker AND score > $min_score
                                 OPTIONAL MATCH (node)-[:HAS_VALUE]->(v:Value)
                                 OPTIONAL MATCH (node)-[:EXPLAINED_BY]->(r:Reason)
-                                RETURN node.text AS text, node.metric AS metric, v.content AS value,
+                                RETURN node.metric AS text, node.metric AS metric, v.content AS value,
                                        r.content AS reason, node.ticker AS ticker,
                                        node.quarter AS quarter, score
                                 ORDER BY score DESC
@@ -270,7 +270,7 @@ class ComparativeAgent:
                         WHERE node.ticker IN $peer_ticker_list AND score > $min_score
                         OPTIONAL MATCH (node)-[:HAS_VALUE]->(v:Value)
                         OPTIONAL MATCH (node)-[:EXPLAINED_BY]->(r:Reason)
-                        RETURN node.text AS text, node.metric AS metric, v.content AS value,
+                        RETURN node.metric AS text, node.metric AS metric, v.content AS value,
                                r.content AS reason, node.ticker AS ticker,
                                node.quarter AS quarter, score
                         ORDER BY score DESC
@@ -291,7 +291,7 @@ class ComparativeAgent:
                         WHERE node.ticker <> $exclude_ticker AND score > $min_score
                         OPTIONAL MATCH (node)-[:HAS_VALUE]->(v:Value)
                         OPTIONAL MATCH (node)-[:EXPLAINED_BY]->(r:Reason)
-                        RETURN node.text AS text, node.metric AS metric, v.content AS value,
+                        RETURN node.metric AS text, node.metric AS metric, v.content AS value,
                                r.content AS reason, node.ticker AS ticker,
                                node.quarter AS quarter, score
                         ORDER BY score DESC
@@ -362,7 +362,7 @@ class ComparativeAgent:
                     WHERE node.sector = $sector AND node.quarter = $quarter AND node.ticker <> $exclude_ticker
                     OPTIONAL MATCH (node)-[:HAS_VALUE]->(v:Value)
                     OPTIONAL MATCH (node)-[:EXPLAINED_BY]->(r:Reason)
-                    RETURN node.text AS text, node.metric AS metric, v.content AS value,
+                    RETURN node.metric AS text, node.metric AS metric, v.content AS value,
                            r.content AS reason, node.ticker AS ticker,
                            node.quarter AS quarter, node.sector AS sector, score
                     ORDER BY score DESC

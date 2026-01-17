@@ -33,7 +33,17 @@ class DateAwareEncoder(json.JSONEncoder):
 
 
 def _get_db_config():
-    """Lazy initialization of DB config to allow dotenv to load first."""
+    """Lazy initialization of DB config to allow dotenv to load first.
+
+    Note: Set STORAGE_USE_SQLITE=1 to force SQLite storage even when POSTGRES_DSN is set.
+    This is useful when the PostgreSQL user doesn't have CREATE TABLE permission.
+    """
+    # Force SQLite if explicitly requested (useful when PG user lacks CREATE permission)
+    if os.getenv("STORAGE_USE_SQLITE", "").lower() in ("1", "true", "yes"):
+        db_path = Path(os.getenv("ANALYSIS_DB_PATH", "data/analysis_results.db"))
+        db_path.parent.mkdir(parents=True, exist_ok=True)
+        return "sqlite", None, db_path
+
     pg_dsn = os.getenv("POSTGRES_DSN")
     if pg_dsn:
         return "postgres", pg_dsn, None

@@ -989,7 +989,7 @@ def get_historical_financials_facts(
                     SELECT
                         inc.date, inc.period, inc.fiscal_year,
                         inc.revenue, inc.net_income, inc.eps, inc.ebitda,
-                        inc.revenue_growth, inc.gross_profit, inc.operating_income
+                        inc.gross_profit, inc.operating_income
                     FROM income_statements inc
                     WHERE UPPER(inc.symbol) = %s
                         AND inc.date < %s
@@ -1002,7 +1002,7 @@ def get_historical_financials_facts(
                     SELECT
                         inc.date, inc.period, inc.fiscal_year,
                         inc.revenue, inc.net_income, inc.eps, inc.ebitda,
-                        inc.revenue_growth, inc.gross_profit, inc.operating_income
+                        inc.gross_profit, inc.operating_income
                     FROM income_statements inc
                     WHERE UPPER(inc.symbol) = %s
                     ORDER BY inc.date DESC
